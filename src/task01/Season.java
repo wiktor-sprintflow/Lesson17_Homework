@@ -14,6 +14,16 @@ enum Season {
         this.months = months;
     }
 
+    static Season findSeasonByName(String plName) {
+        Season[] seasons = Season.values();
+        for (Season season : seasons) {
+            if (season.getName().toUpperCase().equals(plName.toUpperCase())) {
+                return season;
+            }
+        }
+        throw new NoSeasonFoundException();
+    }
+
     public String getName() {
         return name;
     }

@@ -6,7 +6,7 @@ public class SeasonsApp {
     public static void main(String[] args) {
         try {
             String season = readSeason();
-            Season seasonName = findSeasonByName(season);
+            Season seasonName = Season.findSeasonByName(season);
             System.out.println("Wartość typu Season dla wczytanej nazwy \"" + season + "\" to: " + seasonName + ".");
             System.out.println("Miesiące wchodzące w skład " + season + " to: " + printMonths(seasonName));
         } catch (NoSeasonFoundException e) {
@@ -20,16 +20,6 @@ public class SeasonsApp {
         String season = scanner.nextLine();
         scanner.close();
         return season;
-    }
-
-    private static Season findSeasonByName(String plName) {
-        Season[] seasons = Season.values();
-        for (Season season : seasons) {
-            if (season.getName().toUpperCase().equals(plName.toUpperCase())) {
-                return season;
-            }
-        }
-        throw new NoSeasonFoundException();
     }
 
     private static String printMonths(Season season) {
