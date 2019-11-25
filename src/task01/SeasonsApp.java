@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class SeasonsApp {
     public static void main(String[] args) {
         try {
-            String season = readSeason();
-            Season seasonName = Season.findSeasonByName(season);
-            System.out.println("Wartość typu Season dla wczytanej nazwy \"" + season + "\" to: " + seasonName + ".");
-            System.out.println("Miesiące wchodzące w skład " + season + " to: " + Season.printMonths(seasonName));
+            String seasonName = readSeason();
+            Season season = Season.findSeasonByName(seasonName);
+            System.out.println("Wartość typu Season dla wczytanej nazwy \"" + seasonName + "\" to: " + season + ".");
+            System.out.println("Miesiące wchodzące w skład " + seasonName + " to: " + Season.getMonthsInSeason(season));
         } catch (NoSeasonFoundException e) {
             System.err.println(e.getMessage());
         }
