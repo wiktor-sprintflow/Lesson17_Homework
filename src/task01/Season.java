@@ -24,6 +24,11 @@ enum Season {
         throw new NoSeasonFoundException();
     }
 
+    static String printMonths(Season season) {
+        String[] months = season.getMonths();
+        return months[0] + ", " + months[1] + " i " + months[2] + ".";
+    }
+
     public String getName() {
         return name;
     }

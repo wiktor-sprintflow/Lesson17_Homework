@@ -8,7 +8,7 @@ public class SeasonsApp {
             String season = readSeason();
             Season seasonName = Season.findSeasonByName(season);
             System.out.println("Wartość typu Season dla wczytanej nazwy \"" + season + "\" to: " + seasonName + ".");
-            System.out.println("Miesiące wchodzące w skład " + season + " to: " + printMonths(seasonName));
+            System.out.println("Miesiące wchodzące w skład " + season + " to: " + Season.printMonths(seasonName));
         } catch (NoSeasonFoundException e) {
             System.err.println(e.getMessage());
         }
@@ -20,10 +20,5 @@ public class SeasonsApp {
         String season = scanner.nextLine();
         scanner.close();
         return season;
-    }
-
-    private static String printMonths(Season season) {
-        String[] months = season.getMonths();
-        return months[0] + ", " + months[1] + " i " + months[2] + ".";
     }
 }
